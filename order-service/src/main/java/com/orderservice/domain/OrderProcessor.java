@@ -15,10 +15,11 @@ public class OrderProcessor {
 
     private final OrderJpaRepository orderJpaRepository;
     private final OrderEntityMapper orderEntityMapper;
+    private final PricingService pricingService;
 
     public OrderEntity create(final CreateOrderRequestDto request) {
         var entity = orderEntityMapper.toEntity(request);
-        getCalculatePricingForOrder(entity);
+        pricingService.calculatePrice(entity);
         entity.setOrderStatus(OrderStatus.PENDING_PAYMENT);
         return orderJpaRepository.save(entity);
     }
@@ -27,17 +28,5 @@ public class OrderProcessor {
         var orderItemEntityOptional = orderJpaRepository.findById(id);
         return orderItemEntityOptional.orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Entity with id `%s` not found".formatted(id)));
-    }
-
-    private void getCalculatePricingForOrder(final OrderEntity entity) {
-        BigDecimal totalAmount = BigDecimal.ZERO;
-        for (OrderItemEntity item : entity.getItems()) {
-            var randomPrice = ThreadLocalRandom.current().nextDouble(10, 100);
-            item.setPriceAtPurchase(new BigDecimal(randomPrice));
-            totalAmount = item.getPriceAtPurchase()
-                    .multiply(BigDecimal.valueOf(item.getQuantity())
-                            .add(totalAmount));
-        }
-        entity.setTotalAmount(totalAmount);
     }
 }
