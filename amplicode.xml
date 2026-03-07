@@ -17,6 +17,11 @@
           <package value="com.paymentservice" />
         </packages>
       </persistence-unit>
+      <persistence-unit moduleName="order-platform.product-service.main" name="Default">
+        <packages>
+          <package value="com.productservice" />
+        </packages>
+      </persistence-unit>
     </persistence-units>
   </component>
 </project>

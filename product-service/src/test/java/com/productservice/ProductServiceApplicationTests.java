@@ -1,8 +1,9 @@
-package com.deliveryservice;
+package com.productservice;
 
 import org.junit.jupiter.api.Test;
 
-class DeliveryServiceApplicationTests {
+
+class ProductServiceApplicationTests {
 
     @Test
     void contextLoads() {
