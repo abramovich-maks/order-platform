@@ -1,13 +1,14 @@
 package com.orderservice;
 
-import com.orderservice.api.CreateOrderRequestDto;
-import com.orderservice.domain.FakePricingService;
-import com.orderservice.domain.OrderEntity;
-import com.orderservice.domain.OrderEntityMapper;
-import com.orderservice.domain.OrderJpaRepository;
+import com.commonlibs.api.http.order.CreateOrderRequestDto;
+import com.commonlibs.api.http.order.OrderStatus;
+import com.orderservice.domain.OrderPricingCalculator;
 import com.orderservice.domain.OrderProcessor;
-import com.orderservice.domain.OrderStatus;
 import com.orderservice.domain.PricingService;
+import com.orderservice.domain.db.OrderEntity;
+import com.orderservice.domain.db.OrderEntityMapper;
+import com.orderservice.domain.db.OrderJpaRepository;
+import com.orderservice.external.ProductHttpClient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.server.ResponseStatusException;
@@ -23,8 +24,9 @@ class OrderServiceApplicationTests {
 
     private final OrderJpaRepository orderJpaRepository = new InMemoryOrderRepository();
     private final OrderEntityMapper orderEntityMapper = mock(OrderEntityMapper.class);
-    private final PricingService pricingService = new FakePricingService();
-    private final OrderProcessor orderProcessor = new OrderProcessor(orderJpaRepository, orderEntityMapper, pricingService);
+    ProductHttpClient productClient;
+    private final PricingService pricingService = new OrderPricingCalculator(productClient);
+    private final OrderProcessor orderProcessor = new OrderProcessor(orderJpaRepository, orderEntityMapper, pricingService, productClient);
 
 
     @Test

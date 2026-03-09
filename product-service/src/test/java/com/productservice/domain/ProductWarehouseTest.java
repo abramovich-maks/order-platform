@@ -1,7 +1,7 @@
 package com.productservice.domain;
 
 import com.productservice.api.dto.AddProductRequestDto;
-import com.productservice.api.dto.AvailabilityProductDto;
+import com.commonlibs.api.http.product.AvailabilityProductDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;

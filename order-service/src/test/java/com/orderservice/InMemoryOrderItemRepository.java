@@ -1,7 +1,7 @@
 package com.orderservice;
 
-import com.orderservice.domain.OrderItemEntity;
-import com.orderservice.domain.OrderItemJpaRepository;
+import com.orderservice.domain.db.OrderItemEntity;
+import com.orderservice.domain.db.OrderItemJpaRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,7 @@
 package com.productservice.domain;
 
 import com.productservice.api.dto.AddProductRequestDto;
-import com.productservice.api.dto.ProductDto;
+import com.commonlibs.api.http.product.ProductDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;

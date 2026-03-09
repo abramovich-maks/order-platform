@@ -1,11 +1,11 @@
 package com.productservice.api;
 
+import com.commonlibs.api.http.product.ProductDto;
 import com.productservice.api.dto.AddProductRequestDto;
 import com.productservice.api.dto.AllProductResponseDto;
-import com.productservice.api.dto.AvailabilityProductDto;
-import com.productservice.api.dto.ProductDto;
-import com.productservice.api.dto.ReserveProductRequestDto;
-import com.productservice.api.dto.RestockProductRequestDto;
+import com.commonlibs.api.http.product.AvailabilityProductDto;
+import com.commonlibs.api.http.product.ReserveProductRequestDto;
+import com.commonlibs.api.http.product.RestockProductRequestDto;
 import com.productservice.domain.ProductEntity;
 import com.productservice.domain.ProductEntityMapper;
 import com.productservice.domain.ProductWarehouse;

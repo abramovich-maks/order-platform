@@ -1,7 +1,7 @@
 package com.productservice.domain;
 
 import com.productservice.api.dto.AddProductRequestDto;
-import com.productservice.api.dto.AvailabilityProductDto;
+import com.commonlibs.api.http.product.AvailabilityProductDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
