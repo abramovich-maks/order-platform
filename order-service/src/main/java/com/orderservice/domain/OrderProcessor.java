@@ -31,7 +31,7 @@ public class OrderProcessor {
                             item.getItemId(),
                             item.getQuantity()
                     )
-            )
+            );
         }
         entity.setOrderStatus(PENDING_PAYMENT);
         return orderJpaRepository.save(entity);
