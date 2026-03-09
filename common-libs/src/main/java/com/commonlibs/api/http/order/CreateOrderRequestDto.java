@@ -1,12 +1,8 @@
-package com.orderservice.api;
-
-import com.orderservice.domain.OrderEntity;
+package com.commonlibs.api.http.order;
 
 import java.util.Set;
 
-/**
- * DTO for {@link OrderEntity}
- */
+
 public record CreateOrderRequestDto(
         Long customersId,
         String address,

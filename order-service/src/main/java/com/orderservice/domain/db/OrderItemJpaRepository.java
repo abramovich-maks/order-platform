@@ -1,4 +1,4 @@
-package com.orderservice.domain;
+package com.orderservice.domain.db;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

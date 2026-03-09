@@ -1,4 +1,4 @@
-package com.orderservice.domain;
+package com.orderservice.domain.db;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

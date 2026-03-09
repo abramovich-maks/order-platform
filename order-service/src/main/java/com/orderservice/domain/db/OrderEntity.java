@@ -1,5 +1,6 @@
-package com.orderservice.domain;
+package com.orderservice.domain.db;
 
+import com.commonlibs.api.http.order.OrderStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

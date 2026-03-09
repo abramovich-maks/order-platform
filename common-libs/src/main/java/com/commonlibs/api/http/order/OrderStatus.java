@@ -1,4 +1,4 @@
-package com.orderservice.domain;
+package com.commonlibs.api.http.order;
 
 public enum OrderStatus {
     PENDING_PAYMENT,

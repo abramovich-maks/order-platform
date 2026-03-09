@@ -1,9 +1,6 @@
-package com.orderservice.api;
+package com.commonlibs.api.http.order;
 
 import java.math.BigDecimal;
 
-/**
- * DTO for {@link com.orderservice.domain.OrderItemEntity}
- */
 public record OrderItemDto(Long id, Long itemId, Integer quantity, BigDecimal priceAtPurchase) {
 }

@@ -1,4 +1,4 @@
-package com.productservice.api.dto;
+package com.commonlibs.api.http.product;
 
 import lombok.Builder;
 

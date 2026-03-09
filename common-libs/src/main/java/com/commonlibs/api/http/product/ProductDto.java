@@ -1,12 +1,7 @@
-package com.productservice.api.dto;
-
-import com.productservice.domain.ProductEntity;
+package com.commonlibs.api.http.product;
 
 import java.math.BigDecimal;
 
-/**
- * DTO for {@link ProductEntity}
- */
 public record ProductDto(
         Long id,
         String name,
