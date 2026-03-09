@@ -36,4 +36,11 @@ public class OrderController {
         var found = orderProcessor.getOrderOrThrow(id);
         return orderEntityMapper.toOrderDto(found);
     }
+
+    @PostMapping("/{id}/pay")
+    public OrderDto payOrder(@PathVariable Long id, @RequestBody final OrderPaymentRequest request) {
+        log.info("Processing payment for order with id: {}, request={}", id, request);
+        var entity = orderProcessor.processPayment(id, request);
+        return orderEntityMapper.toOrderDto(entity);
+    }
 }

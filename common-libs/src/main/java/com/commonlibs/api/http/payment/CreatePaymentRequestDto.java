@@ -1,8 +1,9 @@
 package com.commonlibs.api.http.payment;
 
 
-import java.math.BigDecimal;
+import lombok.Builder;import java.math.BigDecimal;
 
+@Builder
 public record CreatePaymentRequestDto(
         Long orderId,
         BigDecimal amount,

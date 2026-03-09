@@ -1,9 +1,9 @@
 package com.orderservice.external;
 
 
-import com.commonlibs.api.http.product.AvailabilityProductDto;
 import com.commonlibs.api.http.product.ProductDto;
 import com.commonlibs.api.http.product.ReserveProductRequestDto;
+import com.commonlibs.api.http.product.RestockProductRequestDto;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.GetExchange;
@@ -23,4 +23,6 @@ public interface ProductHttpClient {
     @PostExchange("/reserve")
     ProductDto reserveProduct(@RequestBody ReserveProductRequestDto request);
 
+    @PostExchange("{id}/restock")
+    ProductDto restockProduct(@PathVariable Long id, @RequestBody RestockProductRequestDto request);
 }

@@ -8,6 +8,7 @@ import com.orderservice.domain.PricingService;
 import com.orderservice.domain.db.OrderEntity;
 import com.orderservice.domain.db.OrderEntityMapper;
 import com.orderservice.domain.db.OrderJpaRepository;
+import com.orderservice.external.PaymentHttpClient;
 import com.orderservice.external.ProductHttpClient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,9 +25,10 @@ class OrderServiceApplicationTests {
 
     private final OrderJpaRepository orderJpaRepository = new InMemoryOrderRepository();
     private final OrderEntityMapper orderEntityMapper = mock(OrderEntityMapper.class);
-    ProductHttpClient productClient;
+    private final ProductHttpClient productClient = mock(ProductHttpClient.class);
+    private final PaymentHttpClient paymentClient = mock(PaymentHttpClient.class);
     private final PricingService pricingService = new OrderPricingCalculator(productClient);
-    private final OrderProcessor orderProcessor = new OrderProcessor(orderJpaRepository, orderEntityMapper, pricingService, productClient);
+    private final OrderProcessor orderProcessor = new OrderProcessor(orderJpaRepository, orderEntityMapper, pricingService, productClient, paymentClient);
 
 
     @Test
