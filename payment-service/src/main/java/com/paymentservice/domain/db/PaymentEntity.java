@@ -1,5 +1,7 @@
-package com.paymentservice.domain;
+package com.paymentservice.domain.db;
 
+import com.commonlibs.api.http.payment.PaymentMethod;
+import com.commonlibs.api.http.payment.PaymentStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

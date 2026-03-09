@@ -1,5 +1,7 @@
 package com.paymentservice.api;
 
+import com.commonlibs.api.http.payment.CreatePaymentRequestDto;
+import com.commonlibs.api.http.payment.CreatePaymentResponseDto;
 import com.paymentservice.domain.PaymentService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

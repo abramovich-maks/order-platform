@@ -1,4 +1,4 @@
-package com.paymentservice.domain;
+package com.commonlibs.api.http.payment;
 
 public enum PaymentMethod {
     CREDIT_CARD,
