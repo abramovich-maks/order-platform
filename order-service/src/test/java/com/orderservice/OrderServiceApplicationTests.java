@@ -2,6 +2,7 @@ package com.orderservice;
 
 import com.commonlibs.api.http.order.CreateOrderRequestDto;
 import com.commonlibs.api.http.order.OrderStatus;
+import com.commonlibs.api.kafka.OrderPaidEvent;
 import com.orderservice.domain.OrderPricingCalculator;
 import com.orderservice.domain.OrderProcessor;
 import com.orderservice.domain.PricingService;
@@ -10,8 +11,10 @@ import com.orderservice.domain.db.OrderEntityMapper;
 import com.orderservice.domain.db.OrderJpaRepository;
 import com.orderservice.external.PaymentHttpClient;
 import com.orderservice.external.ProductHttpClient;
+import com.orderservice.kafka.KafkaConfiguration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.HashSet;
@@ -28,7 +31,8 @@ class OrderServiceApplicationTests {
     private final ProductHttpClient productClient = mock(ProductHttpClient.class);
     private final PaymentHttpClient paymentClient = mock(PaymentHttpClient.class);
     private final PricingService pricingService = new OrderPricingCalculator(productClient);
-    private final OrderProcessor orderProcessor = new OrderProcessor(orderJpaRepository, orderEntityMapper, pricingService, productClient, paymentClient);
+    private final KafkaTemplate<Long, OrderPaidEvent> kafkaTemplate = mock(KafkaTemplate.class);
+    private final OrderProcessor orderProcessor = new OrderProcessor(orderJpaRepository, orderEntityMapper, pricingService, productClient, paymentClient, kafkaTemplate);
 
 
     @Test
